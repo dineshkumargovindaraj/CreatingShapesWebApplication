@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+By Dinesh Kumar Govindaraj
+-->
+<html>
+    <head>
+        <title>Shapes Database - Submitted By Dinesh Kumar Govindaraj</title>
+
+        <!--Adjusting the page on mobile screen  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+        <!-- JQ -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>        
+
+        <!--        Need to put this block AFTER jQuery but BEFORE JQM -->
+        <script>
+            //for bypassing the chrome error
+            $(document).bind('mobileinit', function () {
+                $.mobile.pushStateEnabled = false;
+            });
+        </script>
+
+        <!-- JQM -->
+        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header"><h1>Shapes Database - Submitted By Dinesh Kumar Govindaraj</h1></div>
+            <div data-role="content">
+        		<select id="shapeTypes" data-native-menu="false">
+				<option value="Please select the shape">Please select the shape</option>
+				<option value="rectangle">Rectangle</option>
+				<option value="triangle">Triangle</option>
+			        <option value="circle">Circle</option>
+			</select>
+			<label>Fill/Stroke</label>
+	                <fieldset data-role="controlgroup" data-type="horizontal">
+            			<input data-mini="true" type="radio" name="styleRadio" id="styleRadioFill" value="FILL" />
+            			<label for="styleRadioFill"> FILL </label>
+            			<input data-mini="true"  type="radio" name="styleRadio" id="styleRadioStroke" value="STROKE"  />
+            			<label for="styleRadioStroke"> STROKE </label>
+			</fieldset>  
+				<label for="colorField">Color Name: </label>
+				<input type="text" placeholder="Colour" name="colorField" data-mini="false" id="colorField" value="">
+				<input type="button" id="saveButton" value="Save">
+				<hr><hr>
+			<label>Shapes Drawing</label>	
+			
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><button id="previousButton" type="button" data-theme="c">Previous Shape</button></div>
+				<div class="ui-block-b"><button id="nextButton"  type="button" data-theme="c">Next Shape</button></div>	   
+			</div>
+			<div style = "center">
+			<canvas id="canvasElement" height="125" width="125">
+
+			</canvas>
+			</div>
+
+	       		 <h1 id="index"></h1><br>
+         		 <h1 id="shape"></h1><br>
+         		 <h1 id="colorName"></h1><br>
+        </div>
+        </div>
+
+
+        <script src="scripts/StoreShapeMongo.js"></script>        
+
+    </body>
+</html>
